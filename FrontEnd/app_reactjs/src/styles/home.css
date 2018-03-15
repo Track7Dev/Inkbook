@@ -1,0 +1,41 @@
+#home_wrapper {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+#home_welcome-banner {
+  width: 80%;
+  margin-top:2%;
+  background-color: rgb(62, 62, 62);
+  border-radius: 5px;
+  border: 1.2px solid rgb(238, 190, 31);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home_site-info {
+  width: 70%;
+  margin-top: 2%;
+  color: white;
+  border-radius: 5px;
+  align-content: 'center';
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+.home_membership {
+  width: 30%;
+  background-color: rgb(19, 19, 19);
+  margin-left: 2%;
+  border: 1px solid #0080ff;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+}
