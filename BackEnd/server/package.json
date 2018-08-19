@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --watch tests/*.test.js",
-    "start": "nodemon app.js"
+    "mongo": "start mongod --dbpath data/db",
+    "start": "nodemon app.js",
+    "dev": "npm run mongo & npm start"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,7 @@
     "chai-jwt": "^2.0.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.2",
     "helmet": "^3.9.0",
     "images-upload-middleware": "^1.1.1",

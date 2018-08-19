@@ -1,7 +1,7 @@
 const { Convo, Message, Artist, Client, Shop } = require('../models');
 const bcrypt = require('bcrypt');
 const jwt = require('jwt-simple');
-const secret = require('../config').secret;
+const secret = process.env.KEY_ACCESS;
 const api_lib = require('../APILibrary');
 
 // const createMessage = (req, res) => {

@@ -2,9 +2,9 @@ const Express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+require('dotenv').config();
 
 const server = Express();
-
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(cors());

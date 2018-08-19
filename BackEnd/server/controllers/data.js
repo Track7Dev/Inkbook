@@ -1,5 +1,5 @@
 const jwt = require('jwt-simple');
-const secret = require('../config').secret;
+const secret =  process.env.KEY_ACCESS;
 const { Artist, Client, Shop } = require('../models');
 const api_lib = require('../APILibrary');
 

@@ -1,7 +1,7 @@
 const { Artist, Client, Shop, Admin } = require('./models');
 const jwt = require('jwt-simple');
 const bcrypt = require('bcrypt');
-const secret = require('./config').secret;
+const secret = process.env.KEY_ACCESS;
 
 // VAIABLES
 //#############################
