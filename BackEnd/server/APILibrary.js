@@ -1,5 +1,5 @@
 const { Artist, Client, Shop, Admin } = require('./models');
-const jwt = require('jwt-simple');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const secret = process.env.KEY_ACCESS;
 
@@ -33,7 +33,7 @@ const assignModel = (status) => {
 const createToken = (payload) => 
 {
   payload.ex = setExp(eTime);
-  return jwt.encode(payload, secret);
+  return jwt.sign(payload, secret);
 }
 
 // Decode JWT
@@ -87,14 +87,14 @@ const verifyUser = (req, res, next) => {
 
 // Authorize SignIn
 const authorizeUser = (req, res, next) => {
-  const status = req.body.status;
-  const Model = assignModel(status);
+  const info = jwt.decode(req.body.token, process.env.KEY_ACCESS);
+  const Model = assignModel(info.status);
   if(!Model) return next();
-  Model.findOne({ username: req.body.username })
+  Model.findOne({ username: info.username })
   .exec((err, user) => {
     if (err || !user) return res.json("Credentials Dont Match");
-    bcrypt.compare(req.body.password, user.password, (err, matched) => {
-      err || !matched ? null : req.token = createToken({username: user.username, password: user.password, status: status});
+    bcrypt.compare(info.password, user.password, (err, matched) => {
+      err || !matched ? null : req.token = createToken({username: user.username, password: user.password, status: info.status});
       next();
     });
   });
