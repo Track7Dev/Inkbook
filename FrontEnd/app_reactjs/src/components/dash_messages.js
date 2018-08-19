@@ -7,7 +7,7 @@ import clientLogo from '../assets/Clients.png';
 import Messages from './dash_message-display';
 import { Route, Link } from 'react-router-dom';
 import { isAbsolute } from 'path';
-const server = require('../config').server;
+const server = process.env.REACT_APP_SERVER;
 
 
 export default class Dash_Messages extends Component {

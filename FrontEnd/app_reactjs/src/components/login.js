@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../styles/login.css';
 import logo from '../assets/Logo_INKBook.png';
-const server = require('../config').server;
+import jwt from 'jsonwebtoken';
+const server = process.env.REACT_APP_SERVER;
 
 export default class Login extends Component {
   constructor() {
@@ -53,7 +54,7 @@ export default class Login extends Component {
   signin = () => {
     const { username, password, status } = this.state;
     if ( !username || !password || !status ) return alert('MISSING CREDENTIALS');
-    axios.post(`${server}/signin`, {username, password, status})
+    axios.post(`${server}/signin`, {token: jwt.sign({username,password,status}, process.env.REACT_APP_KEY_ACCESS)})
     .then((res) => {
       if(!res.data.token) return alert('CREDENTIALS DO NOT MATCH');
       window.localStorage.setItem('token', res.data.token);

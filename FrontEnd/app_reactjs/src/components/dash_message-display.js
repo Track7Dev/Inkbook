@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-const server = require('../config').server;
+const server = process.env.REACT_APP_SERVER;
 
 export default class Messages extends Component {
   constructor(props) {

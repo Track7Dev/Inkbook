@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import mailLogo from '../assets/Mail.png';
-const server = require('../config').server;
+const server = process.env.REACT_APP_SERVER;
 
 export default class Dashboard_Nav extends Component {
   constructor() {

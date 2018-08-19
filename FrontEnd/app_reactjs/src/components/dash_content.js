@@ -3,7 +3,7 @@ import { Dash_Messages} from '../components';
 import { Route } from 'react-router-dom';
 import logo from  '../assets/Logo_INKBook.png';
 import axios from 'axios';
-const server = require('../config').server;
+const server = process.env.REACT_APP_SERVER;
 
 class Admin extends Component {
   constructor() {

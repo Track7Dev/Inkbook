@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     let appStatus;
     this.state.inBeta ? appStatus = <span style={{color: 'red'}}>BETA</span> : appStatus = <span style={{color: 'green'}}>STABLE</span>;
-    console.log(process.env.REACT_APP_TEST);
+    console.log("test" + process.env.REACT_APP_TEST);
     return (
       <div className="App">
         <header className="App-header">
