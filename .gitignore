@@ -16,6 +16,16 @@
 .env.test.local
 .env.production.local
 
+#env
+/BackEnd/server/.env
+
+#db
+/BackEnd/server/data/**/*
+
+#uploads
+/BackEnd/server/uploads/**/*
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
